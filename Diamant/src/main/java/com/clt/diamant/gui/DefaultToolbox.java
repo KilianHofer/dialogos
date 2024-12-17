@@ -113,12 +113,7 @@ public class DefaultToolbox
 
         this.addSeparator();
 
-        //this.addToggleButton(Preferences.getPrefs().showGrid, "toolbar/T_Grid.png");
-
-        this.addToggleButtons(new Tool[]{
-                new Tool("Grid", SingleDocumentWindow.cmdEnableGrid, "toolbar/T_Grid.png"),
-                new Tool("Snapping", SingleDocumentWindow.cmdEnableSnapping, "toolbar/T_Snap.png"),
-        });
+        this.addToggleButton(Preferences.getPrefs().showGrid, "toolbar/T_Grid.png");
 
         this.currentTool.addChangeListener(new ChangeListener() {
 
@@ -197,10 +192,6 @@ public class DefaultToolbox
                 DefaultToolbox.this.commander.doCommand(value);
             }
         }, null);
-    }
-
-    private AbstractButton[] addToggleButtons(Tool tools[]){
-        return this.addButtonGroup(tools, true,  (value) -> DefaultToolbox.this.commander.doCommand(value), null);
     }
 
     private AbstractButton addToggleButton(final BooleanProperty p, String icon) {
